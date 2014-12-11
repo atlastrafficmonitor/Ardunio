@@ -17,13 +17,16 @@ int lastBack1 = 0;
 int lastBack2 = 0;
 int lastFront1 = 0;
 int lastFront2 = 0;
-float minPctgChange = 1; // At least x to register
-int minMax = 50;
+float minPctgChange = 1.3; // At least x to register
+int minMax = 10;
+
 void loop() {
   int sensorValueBack1 = analogRead(A2);
   int sensorValueBack2 = analogRead(A1);
-  int sensorValueFront1 = analogRead(A4);
-  int sensorValueFront2 = analogRead(A5);
+  Serial.println(sensorValueBack1);
+  Serial.println(sensorValueBack2);
+//  int sensorValueFront1 = analogRead(A4);
+//  int sensorValueFront2 = analogRead(A5);
 
 //  Serial.print("Sensor Front2 val: ");
 //  Serial.println(sensorValueFront2);
@@ -51,33 +54,33 @@ void loop() {
     }
   }
   
-  if(((sensorValueFront1) / float(lastFront1))> minPctgChange){
-//    Serial.print("Front1 ");
-//    Serial.println(sensorValueFront1);
-    if(sensorValueFront1 > minMax){
-      Serial.println("Front1"); 
-      digitalWrite(frontPin, HIGH);
-      delay(1);
-      digitalWrite(frontPin, LOW);
-    }
-  }
-    
-  if(((sensorValueFront2) / float(lastFront2)) > minPctgChange){
-//    Serial.print("Front2 ");
-//    Serial.println(sensorValueFront2);
-    if(sensorValueFront2 > minMax){
-      Serial.println("Front2"); 
-      digitalWrite(frontPin, HIGH);
-      delay(1);
-      digitalWrite(frontPin, LOW);
-    }
-  }
+//  if(((sensorValueFront1) / float(lastFront1))> minPctgChange){
+////    Serial.print("Front1 ");
+////    Serial.println(sensorValueFront1);
+//    if(sensorValueFront1 > minMax){
+//      Serial.println("Front1"); 
+//      digitalWrite(frontPin, HIGH);
+//      delay(1);
+//      digitalWrite(frontPin, LOW);
+//    }
+//  }
+//    
+//  if(((sensorValueFront2) / float(lastFront2)) > minPctgChange){
+////    Serial.print("Front2 ");
+////    Serial.println(sensorValueFront2);
+//    if(sensorValueFront2 > minMax){
+//      Serial.println("Front2"); 
+//      digitalWrite(frontPin, HIGH);
+//      delay(1);
+//      digitalWrite(frontPin, LOW);
+//    }
+//  }
   
   
   lastBack1 = sensorValueBack1;
   lastBack2 = sensorValueBack2;
-  lastFront1 = sensorValueFront1;
-  lastFront2 = sensorValueFront2;
+//  lastFront1 = sensorValueFront1;
+//  lastFront2 = sensorValueFront2;
   
   delay(100);        // delay in between reads for stability
 //  Serial.println(sensorValueBack1);
